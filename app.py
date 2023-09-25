@@ -6,9 +6,17 @@ from io import BytesIO
 from utils import cleanImage
 import pickle
 import numpy as np
+import gdown
 
-# loading the models
-mask_detection_model = load_model("./ML/mask_detection.h5") # mask => 0, no_mask => 1
+file_url = "https://drive.google.com/uc?id=1iy5CWEtMou_XHowgV2Qy3YQctdN7_3Zh"
+
+model_filename = "mask_detection.h5"
+
+# Download the file
+gdown.download(file_url, model_filename, quiet=False)
+
+# Load the model
+mask_detection_model = load_model(model_filename)
 blur_detection_model = load_model("./ML/blur_sharp_classifier.h5") # blur => 0, sharp => 1
 beard_detection_model = load_model("./ML/beard_detector.h5") # beard => 0, no_beard => 1 
 
