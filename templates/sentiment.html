@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block body %}
+<h1>Sentiment Analysis</h1>
+<hr />
+<p>
+    This is a simple sentiment analysis web app that uses the Google Natural Language API to analyze text and return an overall score for each sentence in your input
+</p>
+
+<form
+  action="/sentiment"
+  method="POST"
+  style="
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+  "
+>
+  <div
+    style="display: flex; flex-direction: row; align-items: center; gap: 10px"
+  >
+    <p style="font-weight: 600">Enter text:</p>
+    <input type="text" name="text" />
+  </div>
+  <button
+    type="submit"
+    style="
+      margin-top: 3%;
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    "
+  >
+    Submit
+  </button>
+</form>
+{% endblock %}
